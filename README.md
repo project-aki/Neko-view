@@ -5,4 +5,4 @@ Neko view Now
 
 # Thank to
 
-@WhiteSnowFlakes
+[@WhiteSnowFlakes](https://github.com/WhiteSnowFlakes)
