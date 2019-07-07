@@ -8,6 +8,9 @@
     <BootstrapperUrlHistory>"C:\Developments\neko-view\packages\Newtonsoft.Json.12.0.2"</BootstrapperUrlHistory>
     <ErrorReportUrlHistory />
     <FallbackCulture>ko-KR</FallbackCulture>
-    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <VerifyUploadedFiles>true</VerifyUploadedFiles>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
   </PropertyGroup>
 </Project>

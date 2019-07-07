@@ -27,7 +27,7 @@ namespace neko_view
                 var neko = client.DownloadString("https://nekos.life/api/v2/img/neko");
                 JObject json = JObject.Parse(neko);
                 var nekourl = json["url"].ToString();
-                   pictureBox1.LoadAsync(nekourl);
+                pictureBox1.LoadAsync(nekourl);
                 //pictureBox1.ImageLocation = nekourl;
             }
         }
