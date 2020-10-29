@@ -22,6 +22,15 @@ namespace neko_view
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            using (WebClient webClient = new WebClient())
+            {
+                string imageLocation = pictureBox1.ImageLocation;
+                webClient.DownloadFile(imageLocation, imageLocation.Substring(28, 12));
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
             using (WebClient client = new WebClient())
             {
                 var neko = client.DownloadString("https://nekos.life/api/v2/img/neko");
@@ -32,7 +41,7 @@ namespace neko_view
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             using (WebClient client = new WebClient())
             {
