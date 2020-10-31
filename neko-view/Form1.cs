@@ -85,9 +85,9 @@ namespace neko_view
                     using (WebClient client = new WebClient())
                     {
                         // 다른 url 지원
-                       var neko = client.DownloadString("https://nekos.life/api/v2/img/" + rdr["tags"].ToString());
+                       var neko = client.DownloadString("https://nekobot.xyz/api/image?type=" + rdr["tags"].ToString());
                         JObject json = JObject.Parse(neko);
-                        var nekourl = json["url"].ToString();
+                        var nekourl = json["message"].ToString();
                         pictureBox1.LoadAsync(nekourl);
                     }
                 }
@@ -120,9 +120,9 @@ namespace neko_view
                 {
                     using (WebClient client = new WebClient())
                     {
-                        var neko = client.DownloadString("https://nekos.life/api/v2/img/" + rdr["tags"].ToString());
+                        var neko = client.DownloadString("https://nekobot.xyz/api/image?type=" + rdr["tags"].ToString());
                         JObject json = JObject.Parse(neko);
-                        var nekourl = json["url"].ToString();
+                        var nekourl = json["message"].ToString();
                         pictureBox1.LoadAsync(nekourl);
                     }
                 }
