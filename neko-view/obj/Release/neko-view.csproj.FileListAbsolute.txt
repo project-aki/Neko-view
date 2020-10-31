@@ -1,2 +1,0 @@
-C:\Developments\neko-view\neko-view\bin\Release\neko-view.exe
-C:\Developments\neko-view\neko-view\bin\Release\Newtonsoft.Json.dll
