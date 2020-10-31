@@ -79,7 +79,7 @@ namespace neko_view_settings
             else
             {
                 comboBox1.Items.Clear();
-                String[] notnsfw = { "holo", "neko", "kemonomimi", "kanna", "gah", "coffee", "food" };
+                String[] notnsfw = { "holo", "neko", "kemonomimi", "gah", "food" };
                 comboBox1.Items.AddRange(notnsfw);
             }
         }
