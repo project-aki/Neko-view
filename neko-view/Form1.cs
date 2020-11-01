@@ -26,10 +26,13 @@ namespace neko_view
             using (WebClient webClient = new WebClient())
             {
                 string imageLocation = pictureBox1.ImageLocation; //imageLocation.Substring(28, 11)
-                if (Settings.select_path == null) { return; }
-                else
+                string folder = Application.StartupPath + "/pic";
+                DirectoryInfo di = new DirectoryInfo(folder);
+                if (di.Exists == false)
                 {
-                    try
+                    di.Create();
+                }
+                try
                     {
                         string connStr = @"Data Source=" + Application.StartupPath + "/user.db;Version=3;";
                         using (var conn = new SQLiteConnection(connStr))
@@ -40,15 +43,14 @@ namespace neko_view
                             SQLiteDataReader rdr = cmd.ExecuteReader();
                             while (rdr.Read())
                             {
-                                pictureBox1.Image.Save(rdr["path"].ToString() + "\\" + Path.GetFileName(imageLocation));
+                                pictureBox1.Image.Save(rdr["path"].ToString() + "\\pic\\" + Path.GetFileName(imageLocation));
                             }
                             rdr.Close();
                             conn.Close();
                         }
-                    } catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                } catch (Exception ex)
+                {
+                   MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -72,6 +74,12 @@ namespace neko_view
                 command.ExecuteNonQuery();
                 conn.Close();
             }
+            conn = new SQLiteConnection("Data Source=" + Application.StartupPath + "/user.db;Version=3;");
+            string path = "UPDATE user SET path = '" + Application.StartupPath.ToString() + "';";
+            conn.Open();
+            SQLiteCommand cmd2 = new SQLiteCommand(path, conn);
+            cmd2.ExecuteNonQuery();
+            conn.Close();
             string connStr = @"Data Source=" + Application.StartupPath + "/user.db;Version=3;";
 
             using (var conn = new SQLiteConnection(connStr))
